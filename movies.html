@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Movies Downloader by TM</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --card: rgba(255,255,255,0.1);
+    --text: #ffffff;
+    --accent: #00e6ff;
+    --btn: linear-gradient(135deg, #00e6ff, #00ffa6);
+}
+
+.light {
+    --bg: linear-gradient(135deg, #fdfbfb, #ebedee);
+    --card: rgba(0,0,0,0.08);
+    --text: #000000;
+    --accent: #0066cc;
+    --btn: linear-gradient(135deg, #0066cc, #00b3ff);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: 0.4s;
+}
+
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0,0,0,0.35);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: var(--accent);
+}
+
+header p {
+    opacity: 0.85;
+    margin-top: 10px;
+}
+
+.toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: none;
+    background: var(--btn);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.card h2 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.card p {
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    background: var(--btn);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.4);
+    margin-top: 40px;
+}
+
+footer span {
+    color: var(--accent);
+    font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<button class="toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+
+<header>
+    <h1>Movies Downloader by TM</h1>
+    <p>Secure • Stylish • Fast Downloads</p>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Bad Newz</h2>
+        <p>High quality download for Bad Newz.</p>
+        <button class="btn" onclick="downloadMovie(
+        'https://mega.nz/file/AJ0xELaZ#OHxB7puRrr9xGeb6Zjb0I7pSwUe6nSquVgRrRKEYrJM')">
+            Download Now
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>Fighter</h2>
+        <p>Instant secure download for Fighter.</p>
+        <button class="btn" onclick="downloadMovie(
+        'https://mega.nz/file/YQ8EXRiL#RTychCsz9XmS_UVzHV4bbxZ4LnJ-EOPLv_fcUs1fwDk')">
+            Download Now
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>Chaava</h2>
+        <p>Fast & protected download for Chaava.</p>
+        <button class="btn" onclick="downloadMovie(
+        'https://mega.nz/file/BUkVTTgD#jePRTAmNKUpnSzYmVWBTezlp6uLSr7xoHpf82NxMzfQ')">
+            Download Now
+        </button>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 • By <span>Tushar Malpani</span>
+</footer>
+
+<script>
+function downloadMovie(link) {
+    var pass = prompt("Enter password to download:");
+
+    if (pass === "movie123") {
+        let a = document.createElement("a");
+        a.href = link;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    } else {
+        alert("❌ Wrong password!");
+    }
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("light");
+}
+</script>
+
+</body>
+</html>
